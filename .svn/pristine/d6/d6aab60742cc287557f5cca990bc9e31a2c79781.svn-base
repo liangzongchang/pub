@@ -1,0 +1,520 @@
+/**   
+ * 文件名：Activity_Reg.java 
+ * 类名称：Activity_Reg   
+ * 类描述：      
+ * 创建人：诸葛飞扬。JJ   
+ * 创建时间：2014-12-28 上午9:59:44  
+ * Copyright 诸葛飞扬。JJ Corporation 2014 版权所有     
+ * 版本信息：    
+ * 修改人：jj   
+ * 修改时间：2014-12-28 上午9:59:44   
+ * 修改备注：   
+ */
+package com.wanqin.ktv.reg;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.ProgressDialog;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.SMSSDK.VerifyCodeReadListener;
+
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.wanqin.ktv.R;
+import com.wanqin.ktv.utils.JToast;
+import com.wanqin.ktv.utils.StringUtil;
+
+/**
+ * @ClassName: Activity_Reg
+ * @Description: TODO(*)
+ * @author 诸葛飞扬。JJ
+ * @date 2014-12-28 上午9:59:44
+ * 
+ */
+public class Activity_Reg extends SherlockFragmentActivity implements
+		OnClickListener {
+
+	private Button right_Button;
+	private ImageView left_Button;
+	private TextView tttTextView;
+	private ViewPager pager;
+	private Fragment_PhoneNum fragment_PhoneNum;
+	private Fragment_RegInfo fragment_RegInfo;
+	private Fragment_validate fragment_validate;
+	private boolean ready = false;
+	private String phone = "", code = "";
+	private Timer timer;
+	private LinearLayout background;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		initSMSSDK();
+		initRecever();
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_reg);
+		initActionBar();
+		initView();
+	}
+
+	/**
+	 * @Description: TODO(设置短信监听)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午9:50:37
+	 */
+	SMSReceiver smsReceiver;
+	VerifyCodeReadListener verifyCodeReadListener = new VerifyCodeReadListener() {
+
+		@Override
+		public void onReadVerifyCode(String arg0) {
+			System.out.println("接收到的验证码是:" + arg0);
+			fragment_validate.randomCode_EditText.setText(arg0);
+
+		}
+	};
+
+	private void initRecever() {
+
+		smsReceiver = new SMSReceiver(verifyCodeReadListener);
+		IntentFilter intentFilter = new IntentFilter(
+				"android.provider.Telephony.SMS_RECEIVED");
+		intentFilter.setPriority(1000);
+		registerReceiver(smsReceiver, intentFilter);
+
+	}
+
+	/**
+	 * @Description: TODO(*)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午6:47:59
+	 */
+	private void initSMSSDK() {
+		SMSSDK.initSDK(this, getString(R.string.APPKEY),
+				getString(R.string.APPSECRET));
+		EventHandler eventHandler = new EventHandler() {
+			public void afterEvent(final int event, final int result,
+					final Object data) {
+				Activity_Reg.this.runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (result == SMSSDK.RESULT_COMPLETE) {
+							// 回调完成
+							if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+								// 提交验证码成功
+								pager.setCurrentItem(2);
+								background
+										.setBackgroundResource(R.drawable.register_acount_header);
+								progressDialog.dismiss();
+							} else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+								// 获取验证码成功
+							} else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+								// 返回支持发送验证码的国家列表
+							}
+						} else {
+							if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+								JToast.showErrorToast(getApplicationContext(),
+										"验证码错误");
+								progressDialog.dismiss();
+
+							} else {
+								JToast.showToast(getApplicationContext(),
+										data.toString());
+								((Throwable) data).printStackTrace();
+
+							}
+
+						}
+
+					}
+				});
+
+			}
+		};
+		// 注册回调监听接口
+		SMSSDK.registerEventHandler(eventHandler);
+		ready = true;
+	}
+
+	/**
+	 * @Description: TODO(*)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午5:08:14
+	 */
+	private void initView() {
+		background = (LinearLayout) findViewById(R.id.background);
+		fragment_PhoneNum = new Fragment_PhoneNum();
+		fragment_validate = new Fragment_validate();
+		fragment_RegInfo = new Fragment_RegInfo();
+		pager = (ViewPager) findViewById(R.id.pager);
+		FragmentPagerAdapter adapter = new GoogleMusicAdapter(
+				getSupportFragmentManager());
+		pager.setAdapter(adapter);
+		pager.setCurrentItem(0);
+		background.setBackgroundResource(R.drawable.register_phone_header);
+		pager.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				return true;
+			}
+		});
+	}
+
+	private static String[] CONTENT = { "基本信息", "详细信息", "专家点评" };
+
+	class GoogleMusicAdapter extends FragmentPagerAdapter {
+
+		public GoogleMusicAdapter(FragmentManager fm) {
+			super(fm);
+
+		}
+
+		@Override
+		public Fragment getItem(int position) {
+			if (position == 0) {
+
+				return fragment_PhoneNum;
+			} else if (position == 1) {
+
+				return fragment_validate;
+			} else if (position == 2) {
+
+				return fragment_RegInfo;
+			} else {
+				return new Fragment_PhoneNum();
+			}
+
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return CONTENT[position].toUpperCase();
+		}
+
+		@Override
+		public int getCount() {
+			return CONTENT.length;
+		}
+	}
+
+	/**
+	 * @Description: TODO(初始化Actionbar)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 上午10:17:20
+	 */
+	private void initActionBar() {
+
+		LayoutInflater inflater = getLayoutInflater();
+		View actionBarView = inflater.inflate(R.layout.actionbar_button, null);
+		actionBarView.setOnClickListener(this);
+		getSupportActionBar().setBackgroundDrawable(
+				getResources().getDrawable(R.color.white));
+		getSupportActionBar().setDisplayShowHomeEnabled(false);
+		getSupportActionBar().setHomeButtonEnabled(false);
+		getSupportActionBar().setLogo(R.drawable.ic_launcher);
+		getSupportActionBar().setDisplayShowTitleEnabled(false);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+		// getSupportActionBar().setTitle("网易新闻");
+		getSupportActionBar().setDisplayUseLogoEnabled(false);
+		getSupportActionBar().setCustomView(actionBarView);
+		getSupportActionBar().setDisplayShowCustomEnabled(true);
+		left_Button = (ImageView) actionBarView
+				.findViewById(R.id.left_ActionBar_Button);
+		left_Button.setImageResource(R.drawable.selector_back);
+		left_Button.setOnClickListener(this);
+		left_Button.setVisibility(View.VISIBLE);
+		tttTextView = (TextView) actionBarView
+				.findViewById(R.id.title_ActionBar);
+
+		tttTextView.setText("会员注册");
+
+		right_Button = (Button) findViewById(R.id.right_ActionBar_Button);
+		// right_Button.setImageResource(R.drawable.selector_userinfo);
+		right_Button.setOnClickListener(this);
+		right_Button.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.left_ActionBar_Button:
+			int i = pager.getCurrentItem();
+			switch (i) {
+			case 0:
+				finish();
+				overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+				break;
+
+			case 1:
+				pager.setCurrentItem(0);
+				background
+						.setBackgroundResource(R.drawable.register_phone_header);
+				break;
+			case 2:
+				pager.setCurrentItem(1);
+				background
+						.setBackgroundResource(R.drawable.register_verify_header);
+				break;
+			}
+
+			break;
+
+		case R.id.right_ActionBar_Button:
+			switch (pager.getCurrentItem()) {
+			case 0:
+				sendRandomCode();
+				break;
+
+			case 1:
+				validateRandomCode();
+				break;
+
+			case 2:
+				submitReg();
+				break;
+			}
+			break;
+
+		}
+
+	}
+
+	/**
+	 * @Description: TODO(*)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-29 下午9:42:47
+	 */
+	private void submitReg() {
+		if (validateReg()) {
+			initNetWork_submitReg();
+		}
+
+	}
+
+	/**
+	 * @Description: TODO(*)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-29 下午9:49:17
+	 */
+	private void initNetWork_submitReg() {
+		// TODO Auto-generated method stub
+		finish();
+		overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+	}
+
+	/**
+	 * @Description: TODO(验证注册信息)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-29 下午9:43:05
+	 * @return
+	 */
+	private boolean validateReg() {
+		if (fragment_RegInfo.username_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入用户名");
+			return false;
+		}
+		if (fragment_RegInfo.nickName_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入昵称");
+			return false;
+		}
+		if (fragment_RegInfo.pasword_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入密码");
+			return false;
+		}
+		if (fragment_RegInfo.confim_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入确认密码");
+			return false;
+		}
+		if (!fragment_RegInfo.confim_EditText
+				.getText()
+				.toString()
+				.trim()
+				.equals(fragment_RegInfo.pasword_EditText.getText().toString()
+						.trim())) {
+			JToast.showErrorToast(getApplicationContext(), "两次输入密码不一致");
+			return false;
+		}
+		if (fragment_RegInfo.email_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入邮箱");
+			return false;
+		}
+		if (!StringUtil.isEmail(fragment_RegInfo.email_EditText.getText().toString().trim())) {
+			JToast.showErrorToast(getApplicationContext(), "请输入正确的邮箱");
+			return false;
+		}
+		if (fragment_RegInfo.sponsor_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入推荐人");
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * @Description: TODO(验证短信验证码)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午8:51:17
+	 */
+	private void validateRandomCode() {
+		if (fragment_validate.randomCode_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入验证码");
+			return;
+		}
+		code = fragment_validate.randomCode_EditText.getText().toString()
+				.trim();
+		initProgressDialog();
+	}
+
+	private ProgressDialog progressDialog;
+
+	/**
+	 * @Description: TODO(初始化进度对话框)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午8:59:58
+	 */
+	private void initProgressDialog() {
+		progressDialog = new ProgressDialog(this);
+		progressDialog.setMessage("请稍后···");
+		progressDialog.show();
+		SMSSDK.submitVerificationCode("86", phone, code);
+
+	}
+
+	/**
+	 * @Description: TODO(发送验证码)
+	 * @author 诸葛飞扬。JJ
+	 * @date 2014-12-28 下午6:12:19
+	 */
+	private void sendRandomCode() {
+		if (time > 0) {
+			JToast.showErrorToast(getApplicationContext(), "两次获取验证码的间隔不能小于60秒");
+			return;
+		}
+		if (fragment_PhoneNum.phone_EditText.getText().toString().trim()
+				.equals("")) {
+			JToast.showErrorToast(getApplicationContext(), "请输入手机号码");
+			return;
+		}
+		if (StringUtil.isMobileNO(fragment_PhoneNum.phone_EditText.getText()
+				.toString().trim())) {
+			SMSSDK.getVerificationCode("86", fragment_PhoneNum.phone_EditText
+					.getText().toString().trim());
+			phone = fragment_PhoneNum.phone_EditText.getText().toString()
+					.trim();
+			pager.setCurrentItem(1);
+			background.setBackgroundResource(R.drawable.register_verify_header);
+			time = 60;
+			timer = new Timer(true);
+			timerTask = new TimerTask() {
+
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					while (time > 0) {
+						try {
+							Thread.currentThread().sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						if (fragment_validate == null
+								|| fragment_validate.getActivity() == null) {
+							break;
+						}
+						fragment_validate.getActivity().runOnUiThread(
+								new Runnable() {
+
+									@Override
+									public void run() {
+										// TODO Auto-generated method stub
+
+										String text = "可能要"
+												+ "<font color=\"#FF0000\">"
+												+ time + "</font>" + "秒后才能收到短信";
+										fragment_validate.randomCode_TextView
+												.setText(Html.fromHtml(text));
+										if (time == 0) {
+											fragment_validate.randomCode_TextView
+													.setText(Html
+															.fromHtml("<font color=\"#FF0000\">"
+																	+ "收不到验证码"
+																	+ "</font>"));
+											timerTask.cancel();
+											timer.cancel();
+											fragment_validate.randomCode_TextView
+													.setOnClickListener(new OnClickListener() {
+
+														@Override
+														public void onClick(
+																View v) {
+															// TODO
+															// Auto-generated
+															// method stub
+															JToast.showToast(
+																	getApplicationContext(),
+																	"正在重新获取短信验证码");
+															sendRandomCode();
+
+														}
+													});
+										}
+										time--;
+									}
+								});
+
+					}
+
+				}
+			};
+			timer.schedule(timerTask, 0);
+		} else {
+			JToast.showErrorToast(getApplicationContext(), "手机号输入有误，请输入正确的手机号码");
+		}
+
+	}
+
+	int time = 0;
+	private TimerTask timerTask;
+
+	@Override
+	protected void onDestroy() {
+		if (ready) {
+			// 销毁回调监听接口
+			SMSSDK.unregisterAllEventHandler();
+		}
+		if (timer != null) {
+			timer.cancel();
+		}
+		if (timerTask != null) {
+			timerTask.cancel();
+		}
+		unregisterReceiver(smsReceiver);
+		super.onDestroy();
+	}
+
+}

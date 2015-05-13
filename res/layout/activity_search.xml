@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_more_fragment"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="大家都在搜"
+            android:textColor="@color/gray_hint"
+            />
+    </LinearLayout>
+	<ListView 
+	    android:id="@+id/hotKey_ListView"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:fadingEdge="none"
+	    android:divider="@color/transparent"
+	    android:dividerHeight="10dp"
+	    android:scrollingCache="@color/transparent"
+	    android:listSelector="@color/transparent"
+	    android:background="@color/transparent"
+	    ></ListView>
+</LinearLayout>

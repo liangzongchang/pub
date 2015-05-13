@@ -1,0 +1,26 @@
+/**   
+* 文件名：KTV_Application.java 
+* 类名称：KTV_Application   
+* 类描述：      
+* 创建人：诸葛飞扬。JJ   
+* 创建时间：2014-12-28 上午9:58:39  
+* Copyright 诸葛飞扬。JJ Corporation 2014 版权所有     
+* 版本信息：    
+* 修改人：jj   
+* 修改时间：2014-12-28 上午9:58:39   
+* 修改备注：   
+*/ 
+package com.wanqin.ktv.application;
+
+import android.app.Application;
+
+/**
+ * @ClassName: KTV_Application
+ * @Description: TODO(应用程序环境)
+ * @author 诸葛飞扬。JJ
+ * @date 2014-12-28 上午9:58:39
+ * 
+ */
+public class KTV_Application extends Application {
+
+}

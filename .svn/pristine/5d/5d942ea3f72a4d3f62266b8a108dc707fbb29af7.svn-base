@@ -1,0 +1,51 @@
+/**   
+* 文件名：Fragment_Find.java 
+* 类名称：Fragment_Find   
+* 类描述：      
+* 创建人：诸葛飞扬。JJ   
+* 创建时间：2014-9-7 上午10:50:40  
+* Copyright 诸葛飞扬。JJ Corporation 2014 版权所有     
+* 版本信息：    
+* 修改人：jj   
+* 修改时间：2014-9-7 上午10:50:40   
+* 修改备注：   
+*/ 
+package com.wanqin.ktv.main;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.wanqin.ktv.R;
+
+/**
+ * @ClassName: Fragment_Find
+ * @Description: TODO(*)
+ * @author 诸葛飞扬。JJ
+ * @date 2014-9-7 上午10:50:40
+ * 
+ */
+public class Fragment_More extends Fragment {
+	static Fragment_More fragment_more;
+	public synchronized static Fragment_More getInstance(){
+		if (fragment_more==null) {
+			fragment_more=new Fragment_More();
+		}
+		return fragment_more;
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		View view= inflater.inflate(R.layout.fragment_more, null);
+		return view;
+	}
+}

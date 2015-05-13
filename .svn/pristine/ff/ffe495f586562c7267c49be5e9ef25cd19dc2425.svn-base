@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange_text"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        
+
+        <LinearLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" >
+
+                <LinearLayout
+                    android:id="@+id/linear_person_yuan"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/yuan"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <com.meg7.widget.CustomShapeImageView
+                        android:id="@+id/customShapeImageView_person_touxiang"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/head"
+                        android:visibility="visible"
+                        app:shape="circle" />
+                </LinearLayout>
+            </FrameLayout>
+
+            
+        </LinearLayout>
+    </LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    >
+	    <TextView android:layout_width="100dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_height="match_parent"
+	       android:text="会员名称:"
+	       
+	       android:gravity="center_vertical|left"
+	        />
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical|left"
+	        android:text="CS_95278"
+	        />
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    >
+	    <TextView android:layout_width="100dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_height="match_parent"
+	       android:text="昵       称:"
+	       
+	       android:gravity="center_vertical|left"
+	        />
+	    <EditText 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical|left"
+	        android:text="酒吧夜神"
+	        />
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    >
+	    <TextView android:layout_width="100dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_height="match_parent"
+	       android:text="旧  密  码:"
+	       
+	       android:gravity="center_vertical|left"
+	        />
+	    <EditText 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical|left"
+	        android:password="true"
+	        />
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    >
+	    <TextView android:layout_width="100dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_height="match_parent"
+	       android:text="密码修改:"
+	       
+	       android:gravity="center_vertical|left"
+	        />
+	    <EditText 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical|left"
+	        android:password="true"
+	        />
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:orientation="horizontal"
+	    android:gravity="center_vertical"
+	    >
+	    <TextView android:layout_width="100dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_height="match_parent"
+	       android:text="确认密码:"
+	       
+	       android:gravity="center_vertical|left"
+	        />
+	    <EditText 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginRight="10dp"
+	        android:gravity="center_vertical|left"
+	        android:password="true"
+	        />
+	</LinearLayout>
+	<Button
+	       android:id="@+id/submit_Button"
+	       android:layout_width="match_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_margin="10dp"
+	       android:background="@drawable/selector_reg"
+	       android:text="提交"
+	       android:textColor="@color/white"
+	       android:textSize="18sp" />
+</LinearLayout>

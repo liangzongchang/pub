@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_more_fragment"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baoshi"
+            />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/default_text_color"
+            android:text="红宝石"
+            />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/default_text_color"
+            android:text="售价： 5000"
+            />
+        <Button 
+            android:id="@+id/duihuan_Button"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="积分兑换"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/selector_reg"
+            android:textColor="@color/default_text_color"
+            />
+    </LinearLayout>
+	
+</RelativeLayout>

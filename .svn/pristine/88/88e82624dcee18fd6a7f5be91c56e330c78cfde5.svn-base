@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_activity"
+    android:orientation="vertical" >
+    <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/phone_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="填写手机号码"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/register_phone_icon_press"
+		    />
+    </FrameLayout>
+
+</LinearLayout>

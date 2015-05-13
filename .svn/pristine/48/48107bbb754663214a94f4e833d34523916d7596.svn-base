@@ -1,0 +1,50 @@
+/**   
+ * 文件名：Fragment_Message.java 
+ * 类名称：Fragment_Message   
+ * 类描述：      
+ * 创建人：诸葛飞扬。JJ   
+ * 创建时间：2014-9-7 上午10:50:18  
+ * Copyright 诸葛飞扬。JJ Corporation 2014 版权所有     
+ * 版本信息：    
+ * 修改人：jj   
+ * 修改时间：2014-9-7 上午10:50:18   
+ * 修改备注：   
+ */
+package com.wanqin.ktv.main;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.wanqin.ktv.R;
+
+/**
+ * @ClassName: Fragment_Message
+ * @Description: TODO(*)
+ * @author 诸葛飞扬。JJ
+ * @date 2014-9-7 上午10:50:18
+ * 
+ */
+public class Fragment_Chat extends Fragment {
+	static Fragment_Chat fragment_Chat;
+	public synchronized static Fragment_Chat getInstance(){
+		if (fragment_Chat==null) {
+			fragment_Chat=new Fragment_Chat();
+		}
+		return fragment_Chat;
+	}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_chat, null);
+		return view;
+	}
+}

@@ -1,0 +1,40 @@
+/**   
+* 文件名：Activity_Search.java 
+* 类名称：Activity_Search   
+* 类描述：      
+* 创建人：诸葛飞扬。JJ   
+* 创建时间：2014-12-30 下午9:04:35  
+* Copyright 诸葛飞扬。JJ Corporation 2014 版权所有     
+* 版本信息：    
+* 修改人：jj   
+* 修改时间：2014-12-30 下午9:04:35   
+* 修改备注：   
+*/ 
+package com.wanqin.ktv.main;
+
+import android.view.KeyEvent;
+
+import com.actionbarsherlock.app.SherlockActivity;
+import com.wanqin.ktv.R;
+
+/**
+ * @ClassName: Activity_Search
+ * @Description: TODO(*)
+ * @author 诸葛飞扬。JJ
+ * @date 2014-12-30 下午9:04:35
+ * 
+ */
+public class Activity_Search extends SherlockActivity {
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onKeyDown(int, android.view.KeyEvent)
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode==KeyEvent.KEYCODE_BACK) {
+			finish();
+			overridePendingTransition(R.anim.push_bottom_in, R.anim.push_bottom_out);
+			return true;
+		}
+		return false;
+	}
+}

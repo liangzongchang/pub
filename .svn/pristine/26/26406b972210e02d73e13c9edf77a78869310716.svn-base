@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/left_ActionBar_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/selector_city"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="长沙"
+                android:textColor="@color/orange_text" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/wb_switch_city" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_marginLeft="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="48dp" >
+
+            <TextView
+                android:id="@+id/search_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+
+                android:background="@drawable/home_search_bg"
+                android:gravity="center_vertical"
+                android:hint="请输入类别或关键字"
+                android:paddingLeft="30dp"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/wb_search_icon" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/right_ActionBar_Button"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right|center_vertical"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_share" />
+    </LinearLayout>
+
+</RelativeLayout>

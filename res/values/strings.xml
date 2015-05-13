@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">pub</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="APPKEY">4f00e4a84236</string>
+	<string name="APPSECRET">7118c9ff0651c82e94776175e517200d</string>
+	
+</resources>

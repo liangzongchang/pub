@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/hotkey_TextView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_hotkey"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="湘江世纪城"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/default_text_color" />
+
+        <TextView
+            android:id="@+id/hotkey_TextView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+             android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="湘江世纪城"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/default_text_color" 
+            android:background="@drawable/selector_hotkey"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/hotkey_TextView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+             android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="湘江世纪城"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/default_text_color" 
+            android:background="@drawable/selector_hotkey"
+            android:gravity="center" />
+    </LinearLayout>
+
+</LinearLayout>

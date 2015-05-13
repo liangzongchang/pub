@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/username_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="输入用户名，设置后不可修改"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/ms_detail_name"
+		    />
+    </FrameLayout>
+   <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/nickName_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="输入昵称"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/follow_icon_1"
+		    />
+    </FrameLayout>
+       <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/pasword_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:password="true"
+            android:textColorHint="@color/hint_color"
+            android:hint="输入密码"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/login_pwd_icon_press"
+		    />
+    </FrameLayout>
+       <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/confim_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="确认密码"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/login_pwd_icon_press"
+		    />
+    </FrameLayout>
+           <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/email_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="输入邮箱号"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/register_verify_icon_press"
+		    />
+    </FrameLayout>
+       <FrameLayout 
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/shapes_gary"
+        android:padding="5dp"
+        >
+
+        <EditText
+            android:id="@+id/sponsor_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="37dp"
+            android:text=""
+            android:textColorHint="@color/hint_color"
+            android:hint="输入推荐人"
+            android:background="@color/white" />
+		<ImageView 
+		    android:layout_width="35dp"
+		    android:layout_height="35dp"
+		    android:layout_gravity="center_vertical"
+		    android:scaleType="centerInside"
+		    
+		    android:src="@drawable/fans_icon"
+		    />
+    </FrameLayout>
+</LinearLayout>

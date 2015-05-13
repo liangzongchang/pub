@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_more_fragment"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:textSize="16sp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评分："
+                android:textColor="@color/default_text_color"
+                android:textSize="16sp" />
+
+            <RatingBar
+                android:id="@+id/pingfen_RatingBar"
+                style="@style/roomRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="12dp"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1.0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="内容："
+                android:textColor="@color/default_text_color"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/content_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="5"
+                android:textColor="@color/default_text_color"
+                android:hint="请输入评价内容"
+                android:gravity="center_vertical"
+                android:background="@drawable/shapes_city_hover"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <Button 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="提交"
+            android:textColor="@color/default_text_color"
+            android:background="@drawable/selector_reg"
+            />
+	</LinearLayout>
+     
+
+</LinearLayout>

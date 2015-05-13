@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="city">
+        <item>长沙</item>
+        <item>株洲</item>
+        <item>湘潭</item>
+        <item>岳阳</item>
+        <item>衡阳</item>
+        <item>郴州</item>
+        <item>邵阳</item>
+        <item>益阳</item>
+        <item>常德</item>
+        <item>怀化</item>
+        <item>娄底</item>
+        <item>张家界</item>
+        <item>吉首</item>
+        <item>湘西</item>
+    </string-array>
+    <string-array name="hotkey">
+        <item>金色年华</item>
+        <item>好乐迪</item>
+         <item>钻石钱柜</item>
+          <item>化龙池</item>
+           <item>十二码</item>
+            <item>玛尔斯</item>
+        </string-array>
+</resources>

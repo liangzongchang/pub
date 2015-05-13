@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+      <LinearLayout 
+ 		android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+		
+        <TextView 
+            android:id="@+id/name_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="酒店名称：芙蓉华天大酒店"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="left|center_vertical"
+            android:padding="5dp"
+            />
+   
+        <TextView 
+            android:id="@+id/number_TextVIew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="台号:18"
+            android:gravity="left|center_vertical"
+            android:padding="5dp"
+            />
+     
+        <TextView 
+            android:id="@+id/type_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="状态：已结账"
+            android:gravity="left|center_vertical"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

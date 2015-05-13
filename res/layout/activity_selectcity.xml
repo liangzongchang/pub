@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_activity"
+    android:orientation="vertical" >
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_more_fragment"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1" >
+
+      
+
+            <EditText
+                android:layout_gravity="center"
+                android:id="@+id/mClearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/home_search_bg"
+                android:gravity="center_vertical"
+                android:hint="请输入城市名称或首字母查询"
+                android:paddingLeft="35dp"
+                android:textSize="12sp" />
+      <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/wb_search_icon" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:background="@color/bg_more_fragment"
+        android:layout_height="fill_parent" >
+
+      
+
+
+
+        <ListView
+            android:id="@+id/country_lvcountry"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@color/white"
+            android:dividerHeight="0dp"
+         	android:background="@color/bg_more_fragment"
+            android:listSelector="@color/transparent"
+             >
+        </ListView>
+          <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:background="@drawable/show_head_toast_bg"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
+        <com.example.sortlistview.SideBar
+            android:id="@+id/sidrbar"
+            android:layout_width="30.0dip"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+
+</LinearLayout>

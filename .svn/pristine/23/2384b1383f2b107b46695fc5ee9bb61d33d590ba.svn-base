@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@drawable/selector_listview_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/bar_RoundedImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/itempic"
+            app:riv_border_width="0dip"
+            app:riv_corner_radius="5dip"
+            app:riv_oval="false" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="5dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" 
+                    android:text="好乐迪KTV旗舰店"
+                    />
+            </LinearLayout>
+            <TextView android:layout_width="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/gray_text"
+                android:textSize="12sp"
+                android:text="晚场裸包套餐"
+                />
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="5dp"
+                >
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red_price"
+                    android:text="68元"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    />
+                 <TextView 
+                     android:id="@+id/originalCost_TextView"
+                     android:layout_marginLeft="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_text"
+                    android:text="700元"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    />
+                 <TextView 
+                     android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_text"
+                    android:text="已售 987"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

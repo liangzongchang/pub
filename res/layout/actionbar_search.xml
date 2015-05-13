@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_actionbar"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_actionbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+          <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="3dp"
+            
+            android:layout_weight="1" >
+
+            <EditText
+                android:id="@+id/search_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:background="@color/bg_more_fragment"
+                android:gravity="center_vertical"
+                android:hint="请输入类别或关键字"
+                android:textColor="@color/default_text_color"
+                android:paddingLeft="30dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/wb_search_icon" />
+
+            <ImageView 
+  	            android:id="@+id/delete_search"
+  	            android:layout_width="20dp"
+  	            android:layout_height="20dp"
+  	            android:layout_gravity="right|center_vertical"
+  	            android:src="@drawable/selector_delete_pic"
+  	            android:visibility="visible"
+  	            android:scaleType="centerInside"
+  	            android:layout_marginRight="5dp"
+  	            />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/right_ActionBar_Button"
+             android:layout_width="wrap_content"
+
+        android:layout_marginRight="2dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textSize="18sp"
+        android:textColor="@color/selector_actionbartextcolor"
+        android:background="@null"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
